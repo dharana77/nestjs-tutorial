@@ -2,6 +2,7 @@ import { Controller, Get , Post, Body} from '@nestjs/common';
 import { post } from 'superagent';
 import { CatsService } from './cats.service';
 import { Cat } from './interfaces/cat.interface';
+import { CreateCatDto } from './dto/create-cat.dto';
 
 @Controller('cats')
 export class CatsController {
@@ -9,7 +10,7 @@ export class CatsController {
 
     @Post()
     async create(@Body() createCatDto: CreateCatDto){
-        this.catsService.create(createDto);
+        this.catsService.create(createCatDto);
     }    
 
     @Get()
